@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.day {
+  @apply cursor-pointer border border-transparent hover:border-indigo-500 py-4 text-center;
+}
