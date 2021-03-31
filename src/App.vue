@@ -37,6 +37,14 @@ export default defineComponent({
       this.open = !this.open;
     },
   },
+  mounted() {
+    let path = localStorage.getItem('path');
+    if (path) {
+      localStorage.removeItem('path')
+      console.log('path:', path);
+      this.$router.push(path);
+    }
+  }
 });
 </script>
 
