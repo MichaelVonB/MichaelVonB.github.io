@@ -11,88 +11,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 import { Training } from "./training.model";
 import TrainingComponent from './Training.vue';
+import { useStore } from 'vuex'
 
 export default defineComponent ({
 name: 'Trainings',
 components: {
   TrainingComponent
 },
-data() {
-  return {
-    trainings: [{
-      id: 1,
-      time: new Date().toLocaleDateString('de-De', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }),
-      players: 10,
-      maxPlayers: 12,
-      location: 'Sporthalle am Michel'
-    },
-    {
-      id: 2,
-      time: new Date().toLocaleDateString('de-De', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }),
-      players: 4,
-      maxPlayers: 12,
-      location: 'Sporthalle am Stadtpark'
-    },
-    {
-      id: 3,
-      time: new Date().toLocaleDateString('de-De', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }),
-      players: 4,
-      maxPlayers: 12,
-      location: 'Sporthalle am Stadtpark'
-    },
-    {
-      id: 4,
-      time: new Date().toLocaleDateString('de-De', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }),
-      players: 4,
-      maxPlayers: 12,
-      location: 'Sporthalle am Stadtpark'
-    },
-    {
-      id: 5,
-      time: new Date().toLocaleDateString('de-De', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }),
-      players: 4,
-      maxPlayers: 12,
-      location: 'Sporthalle am Stadtpark'
-    },
-    {
-      id: 6,
-      time: new Date().toLocaleDateString('de-De', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }),
-      players: 4,
-      maxPlayers: 12,
-      location: 'Sporthalle am Stadtpark'
-    },
-    {
-      id: 7,
-      time: new Date().toLocaleDateString('de-De', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }),
-      players: 4,
-      maxPlayers: 12,
-      location: 'Sporthalle am Stadtpark'
-    },
-    {
-      id: 8,
-      time: new Date().toLocaleDateString('de-De', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }),
-      players: 4,
-      maxPlayers: 12,
-      location: 'Sporthalle am Stadtpark'
-    },
-    {
-      id: 9,
-      time: new Date().toLocaleDateString('de-De', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }),
-      players: 4,
-      maxPlayers: 12,
-      location: 'Sporthalle am Stadtpark'
-    },
-    {
-      id: 10,
-      time: new Date().toLocaleDateString('de-De', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }),
-      players: 4,
-      maxPlayers: 12,
-      location: 'Sporthalle am Stadtpark'
-    }] as Training[]
-  }
+setup: () => {
+  const store = useStore();
+  return { store }
 },
+computed: {
+  trainings(): Training[] {
+    return this.store.state.training.state.trainings;
+  }
+}
 })
 </script>

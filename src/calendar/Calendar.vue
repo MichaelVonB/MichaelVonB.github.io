@@ -1,6 +1,6 @@
 <template>
   <div class="md:w-3/4 xl:w-2/3 2xl:w-1/2 border border-gray-500 shadow-xl rounded">
-    <div class="bg-gray-600 dark:bg-indigo-700 flex justify-around items-center h-24">
+    <div class="bg-gray-600 dark:bg-indigo-700 flex justify-around items-center h-20">
       <div class="text-2xl cursor-pointer" @click="switchMonth(-1)">⏪</div>
       <div class="text-center text-gray-200">
         <div class=" text-2xl font-semibold">{{ date.toLocaleString('default', { month: 'long', year: 'numeric' }) }}</div>
@@ -8,7 +8,7 @@
       </div>
       <div class="text-2xl cursor-pointer" @click="switchMonth(1)">⏩</div>
     </div>
-    <div class="grid grid-cols-7 p-2 bg-white dark:bg-dark-300">
+    <div class="grid grid-cols-7 p-1 bg-white dark:bg-dark-300">
       <div class="lg:hidden" v-for="day in daysShort" :key="day">
         {{ day }}
       </div>

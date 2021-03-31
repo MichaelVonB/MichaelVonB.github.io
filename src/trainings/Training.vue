@@ -5,10 +5,11 @@
     @click="detailed = !detailed"
   >
   <div>
-    <p>{{ training.location }} am {{ training.time }}</p>
+    <p>{{ training.location }} am {{ training.time.toLocaleDateString('de-DE', options) }}</p>
     <p>{{ training.players }} / {{ training.maxPlayers }}</p>
 
   </div>
+  <div @click.stop="deleteTraining" class="hover:bg-dark-100 rounded-full px-2 pt-2">❌</div>
   <div :class="[detailed && 'transform rotate-180', 'arrow-rotate mr-6 my-2']">⏬</div>
   <transition name="dropdown-fade">
     <div v-if="detailed" class="h-auto w-full">
@@ -29,6 +30,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
+import { useStore } from "vuex";
 import { Training } from './training.model';
 
 export default defineComponent({
@@ -36,15 +38,28 @@ export default defineComponent({
   props: {
     training: Object as PropType<Training>,
   },
-  data() {
+  setup() {
+    const options: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }
     return {
-      detailed: false,
+      options
+    }
+  },
+  data() {
+    const store = useStore();
+    return {
+      store,
+      detailed: false,     
     };
   },
   methods: {
     addUserToTraining() {
       alert('Sie wurden hinzugefügt');
     },
+    deleteTraining() {
+      if (confirm("Wollen Sie dieses Training wirklich löschen?")) {
+        this.store.dispatch('deleteTraining', this.training?.id)
+      }     
+    }
   },
 });
 </script>

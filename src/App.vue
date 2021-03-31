@@ -6,8 +6,8 @@
         <TheSidebar class="sm:w-52" v-if="open" />
       </transition>
       <div class="flex-1 flex bg-gray-100 dark:bg-dark-500">
-        <div class="px-6 py-4 flex-1 overflow-y-auto">
-          <div class="container mx-auto my-12">
+        <div class="px-6 flex-1 overflow-y-auto">
+          <div class="container my-4">
             <router-view />
           </div>
         </div>

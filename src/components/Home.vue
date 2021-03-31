@@ -8,7 +8,7 @@
     v-model="newName"
   />
   <button
-    class="text-white bg-indigo-600 py-2 px-5 rounded hover:shadow hover:bg-indigo-700 active:bg-indigo-900"
+    class="button"
     @click="saveName"
   >
     Submit

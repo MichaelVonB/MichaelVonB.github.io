@@ -1,6 +1,6 @@
 export interface Training {
   id: number;
-  time: string;
+  time: Date;
   players: number;
   maxPlayers: number;
   location: string;

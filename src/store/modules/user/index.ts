@@ -7,7 +7,7 @@ export default {
 
   getters: {},
   mutations: {
-    SETNAME(state: userState, payload: any) {
+    SETNAME(state: userState, payload: string) {
       state.name = payload;
     },
   },
