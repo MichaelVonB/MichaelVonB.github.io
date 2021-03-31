@@ -1,4 +1,3 @@
-import { State } from "vue";
 import { Training } from "../../../trainings/training.model";
 import { CommitFunction } from "../../types";
 

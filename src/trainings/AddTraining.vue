@@ -40,7 +40,7 @@ export default defineComponent({
     const time = ref(new Date().toISOString()).value.slice(0,-8);
     console.log(time);
     const maxPlayers = ref(0);
-    const location = null;
+    const location = ref('');
     const store = useStore();
     return {
       store,
